@@ -1,56 +1,49 @@
-# Minimal Python ReAct Infra Agent
+# Advanced Python ReAct Infra Agent
 
-A minimal Python ReAct (Reason + Act) agent that diagnoses simulated infrastructure health issues such as high CPU usage, disk pressure, and Kubernetes pod crashes.
+A minimal yet enhanced Python ReAct (Reason + Act) agent that simulates infrastructure health diagnosis using step-by-step reasoning, tool execution, and structured incident reporting.
 
-The agent follows the ReAct workflow:
-
-Thought → Action → Observation → Answer
+The project demonstrates how an AI agent can inspect infrastructure metrics such as CPU usage, disk pressure, memory utilization, and Kubernetes pod health to identify operational issues.
 
 ---
 
-## Features
+# Features
 
-- Step-by-step reasoning
-- Tool calling simulation
-- Infrastructure issue diagnosis
+- ReAct reasoning workflow
+- Multiple issue simulation
+- Colored terminal logs
+- Infrastructure diagnostics
 - Structured incident report generation
 - Google Colab compatible
-- Simple and beginner-friendly implementation
+- Beginner-friendly implementation
 
 ---
 
-## Simulated Infra Checks
+# ReAct Workflow
 
-The agent uses mock tools to simulate infrastructure monitoring:
-
-- `check_cpu()`
-- `check_disk()`
-- `get_pod_status()`
-
----
-
-## ReAct Workflow
-
-Example reasoning chain:
+The agent follows the ReAct pattern:
 
 ```text
-Thought:
-CPU usage may be causing service instability.
+Thought → Action → Observation → Answer
 
-Action:
+# EXAMPLE
+
+THOUGHT:
+CPU usage may be causing instability.
+
+ACTION:
 check_cpu()
 
-Observation:
-{'cpu_usage': '92%', 'status': 'high'}
+OBSERVATION:
+{'cpu_usage': '94%', 'status': 'high'}
 
-Thought:
-High CPU can affect pod health. Check pod status.
+THOUGHT:
+High CPU may affect Kubernetes pods.
 
-Action:
+ACTION:
 get_pod_status()
 
-Observation:
+OBSERVATION:
 {'pod_name': 'payment-service', 'status': 'CrashLoopBackOff'}
 
-Answer:
-Root cause identified as high CPU and disk pressure.
+FINAL INCIDENT REPORT:
+Infrastructure resource exhaustion detected.
